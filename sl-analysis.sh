@@ -11,9 +11,11 @@ curl https://www.shiftleft.io/download/sl-latest-linux-x64.tar.gz > /tmp/sl.tar.
 
 ls -l
 ls servlettarpir.war
+echo $GITHUB_PROJECT
+echo $GITHUB_BRANCH
 
 # Analyze code
-sl analyze --version-id "$GITHUB_SHA" --tag branch="$GITHUB_BRANCH" --app "$GITHUB_PROJECT" --cpg --wait --force servlettarpit.war
+sl analyze --version-id "$GITHUB_SHA" --tag branch="$GITHUB_BRANCH" --app "$GITHUB_PROJECT" --cpg --wait servlettarpit.war
 
 # Run Build rule check  
 URL="https://www.shiftleft.io/violationlist/$GITHUB_PROJECT?apps=$GITHUB_PROJECT&isApp=1"

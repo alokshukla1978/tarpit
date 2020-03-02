@@ -15,14 +15,15 @@ jobs:
     - name: Build Code
       run: |
         mvn clean package
-        cp target/servlettarpit.war servlettarpit.war
+        mkdir target/warfile/
+        cp target/servlettarpit.war target/warfile/servlettarpit.war
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         # Artifact name
         name: servlettarpit.war
         # Directory containing files to upload
-        path: .
+        path: target/warfile
   shiftleft-code-analysis:
     runs-on: ubuntu-latest
     needs: build-code

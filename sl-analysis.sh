@@ -9,6 +9,9 @@ echo "Got pull request $PULL_REQUEST for branch $GITHUB_BRANCH"
 # Install ShiftLeft
 curl https://www.shiftleft.io/download/sl-latest-linux-x64.tar.gz > /tmp/sl.tar.gz && sudo tar -C /usr/local/bin -xzf /tmp/sl.tar.gz
 
+ls -l
+ls servlettarpir.war
+
 # Analyze code
 sl analyze --version-id "$GITHUB_SHA" --tag branch="$GITHUB_BRANCH" --app "$GITHUB_PROJECT" --cpg --wait --force servlettarpit.war
 

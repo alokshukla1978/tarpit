@@ -10,7 +10,10 @@ echo "Got pull request $PULL_REQUEST for branch $GITHUB_BRANCH"
 curl https://www.shiftleft.io/download/sl-latest-linux-x64.tar.gz > /tmp/sl.tar.gz && sudo tar -C /usr/local/bin -xzf /tmp/sl.tar.gz
 
 ls -l
-ls servlettarpir.war
+ls servlettarpit.war
+cd servlettarpit.war
+ls -l
+cd ..
 echo $GITHUB_PROJECT
 echo $GITHUB_BRANCH
 

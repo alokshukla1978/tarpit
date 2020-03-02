@@ -15,15 +15,15 @@ jobs:
     - name: Build Code
       run: |
         mvn clean package
-        mkdir warfile
-        cp target/servlettarpit.war warfile/servlettarpit.war
+        mkdir targetWAR
+        cp target/servlettarpit.war targetWAR/servlettarpit.war
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         # Artifact name
         name: servlettarpit.war
         # Directory containing files to upload
-        path: warfile
+        path: targetWAR/
   shiftleft-code-analysis:
     runs-on: ubuntu-latest
     needs: build-code
@@ -47,5 +47,8 @@ jobs:
       with:
         # Artifact name
         name: servlettarpit.war 
+        path: .
+    - name: unzip WAR
+      run : unzip servlettarpit.war.zip
     - name: Analyze code
       run: sh sl-analysis.sh

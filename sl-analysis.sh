@@ -9,12 +9,7 @@ echo "Got pull request $PULL_REQUEST for branch $GITHUB_BRANCH"
 # Install ShiftLeft
 curl https://www.shiftleft.io/download/sl-latest-linux-x64.tar.gz > /tmp/sl.tar.gz && sudo tar -C /usr/local/bin -xzf /tmp/sl.tar.gz
 
-ls -l
-ls servlettarpit.war
-echo $GITHUB_PROJECT
-echo $GITHUB_BRANCH
-
-# Analyze code!
+# Analyze code
 sl analyze --version-id "$GITHUB_SHA" --tag branch="$GITHUB_BRANCH" --app "$GITHUB_PROJECT" --java --cpg --wait servlettarpit.war
 
 # Run Build rule check  
@@ -23,13 +18,15 @@ BUILDRULECHECK=$(sl check-analysis --app "$GITHUB_PROJECT" --branch "$GITHUB_BRA
 
 if [ -n "$BUILDRULECHECK" ]; then
     PR_COMMENT="Build rule failed, click here for vulnerability list - $URL"  
+    echo $PR_COMMENT
     curl -XPOST "https://api.github.com/repos/$GITHUB_REPO/issues/$PULL_REQUEST/comments" \
       -H "Authorization: Bearer $GITHUB_TOKEN" \
       -H "Content-Type: application/json" \
       -d "{\"body\": \"$PR_COMMENT\"}"
     exit 1
 else
-    PR_COMMENT="Build rule suceeded, click here for vulnerability list - $URL"  
+    PR_COMMENT="Build rule suceeded, click here for vulnerability list - $URL" 
+    echo $PR_COMMENT
     curl -XPOST "https://api.github.com/repos/$GITHUB_REPO/issues/$PULL_REQUEST/comments" \
       -H "Authorization: Bearer $GITHUB_TOKEN" \
       -H "Content-Type: application/json" \

@@ -48,7 +48,5 @@ jobs:
         # Artifact name
         name: servlettarpit.war 
         path: .
-    - name: unzip WAR
-      run : unzip servlettarpit.war.zip
     - name: Analyze code
       run: sh sl-analysis.sh

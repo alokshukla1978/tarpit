@@ -45,4 +45,4 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v2.0.0  
     - name: Analyze code
-      run: sh actionanalysis.sh
+      run: sh sl-analysis.sh

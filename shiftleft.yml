@@ -2,4 +2,4 @@ build_rules:
     - id: High severity
       severity:
         - SEVERITY_HIGH_IMPACT
-      threshold: 44
+      threshold: 43

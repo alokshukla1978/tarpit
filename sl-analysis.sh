@@ -27,7 +27,7 @@ if [ -n "$BUILDRULECHECK" ]; then
       -d "{\"body\": \"$PR_COMMENT\"}"
     exit 1
 else
-    PR_COMMENT="Build rule suceeded, click here for vulnerability list - $URL" 
+    PR_COMMENT="Build rule succeeded, click here for vulnerability list - $URL" 
     echo $PR_COMMENT
     curl -XPOST "https://api.github.com/repos/$GITHUB_REPO/issues/$PULL_REQUEST/comments" \
       -H "Authorization: Bearer $GITHUB_TOKEN" \

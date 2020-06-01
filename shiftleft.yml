@@ -4,7 +4,7 @@ build_rules:
     - id: High severity
       only_new: true
       finding_types:
-      - vuln
-      - secret
+        - vuln
+        - secret
       severity:
-        - critical
+        - SEVERITY_HIGH_IMPACT 

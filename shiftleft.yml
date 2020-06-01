@@ -1,5 +1,10 @@
+source:
+  branch: master
 build_rules:
     - id: High severity
+      only_new: true
+      finding_types:
+      - vuln
+      - secret
       severity:
-        - SEVERITY_HIGH_IMPACT
-      threshold: 43
+        - critical

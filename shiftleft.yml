@@ -3,4 +3,4 @@ build_rules:
       severity:
         - SEVERITY_HIGH_IMPACT 
       threshold:
-        - 10
+        - 43

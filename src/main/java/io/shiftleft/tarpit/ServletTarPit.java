@@ -67,7 +67,7 @@ public class ServletTarPit extends HttpServlet {
       String sql =
           "SELECT * FROM USER WHERE LOGIN = '" + login + "' AND PASSWORD = '" + password + "'";
 
-      preparedStatement = connection.prepareStatement(sql);
+     //  preparedStatement = connection.prepareStatement(sql);
 
       resultSet = preparedStatement.executeQuery();
 

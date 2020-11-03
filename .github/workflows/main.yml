@@ -46,4 +46,4 @@ jobs:
         name: servlettarpit.war 
         path: .
     - name: Analyze code
-      run: sh sl-analysis.sh
+      run: sh sl-analysis.sh ${{github.event.number}} ${{ github.repository_owner }} ${{ github.event.repository.name }} ${{ secrets.GITHUB_TOKEN }}

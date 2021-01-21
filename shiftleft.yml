@@ -1,5 +1,9 @@
 build_rules:
-    - id: High severity
-      severity:
-        - SEVERITY_HIGH_IMPACT
-      threshold: 59
+  - id: low-impact-only
+    finding_types:
+      - vuln
+      - secret
+      - insight
+    severity:
+      - SEVERITY_LOW_IMPACT
+    threshold: 0

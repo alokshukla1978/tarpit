@@ -1,7 +1,7 @@
 source:
   branch: master
 build_rules:
-  - id: build-break-rule
+  - id: no-critical-injections
     finding_types:
       - vuln
     severity:

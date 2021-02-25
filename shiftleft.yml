@@ -6,5 +6,5 @@ build_rules:
       - vuln
     severity:
       - critical
-    owasp_category:
-      - a1-injection
+    type:
+      - SQL Injection

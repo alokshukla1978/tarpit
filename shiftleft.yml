@@ -6,3 +6,4 @@ build_rules:
       - critical
     type:
       - SQL Injection
+    threshold: 2

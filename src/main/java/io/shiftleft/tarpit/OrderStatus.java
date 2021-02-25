@@ -52,8 +52,10 @@ public class OrderStatus extends HttpServlet {
 
         getConnection();
 
-        String sql = "SELECT * FROM ORDER WHERE ORDERID = '" + orderId;
+        String sql = "SELECT * FROM ORDER WHERE ORDERID = ? ";
         preparedStatement = connection.prepareStatement(sql);
+        
+        preparedStatement.setString(1, orderId);
 
         resultSet = preparedStatement.executeQuery();
 

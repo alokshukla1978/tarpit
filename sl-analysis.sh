@@ -12,7 +12,7 @@ echo "Got pull request $PULL_REQUEST for branch $GITHUB_BRANCH"
 curl https://www.shiftleft.io/download/sl-latest-linux-x64.tar.gz > /tmp/sl.tar.gz && sudo tar -C /usr/local/bin -xzf /tmp/sl.tar.gz
 
 # Analyze code!
-sl analyze --version-id "$GITHUB_SHA" --tag branch="$GITHUB_BRANCH" --app "$GITHUB_PROJECT" --java --cpg --wait servlettarpit.war
+sl analyze --version-id "$GITHUB_SHA" --tag branch="$GITHUB_BRANCH" --app "$GITHUB_PROJECT" --java --cpg --wait --sca --sca-project-dir . servlettarpit.war
 
 # Run Build rule check!  
 sl check-analysis --app "$GITHUB_PROJECT" --branch "$GITHUB_BRANCH" --report --github-pr-number="$1" --github-pr-user="$2" --github-pr-repo="$3" --github-token="$4"
